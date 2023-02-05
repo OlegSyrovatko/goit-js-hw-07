@@ -10,6 +10,7 @@ const images = galleryItems.map(({ preview, original, description }) => {
 
     const image = document.createElement("img");
     image.src = preview;
+    image.src_original = original;
     image.alt = description;
     image.className = "gallery__image";
 
@@ -23,3 +24,14 @@ gallery.append(...images);
 
 
 
+gallery.addEventListener("click", selectImg);
+
+function selectImg(event) { 
+
+  if (event.target.nodeName !== "IMG") {
+      return;
+  }
+  const selectedImg = event.target.src_original; 
+    console.log(selectedImg); 
+
+} 
