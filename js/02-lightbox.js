@@ -5,7 +5,7 @@ const images = galleryItems.map(({ preview, original, description }) => {
 
     const imageItem = `
     <a class="gallery__item" href="${original}">
-        <img class="gallery__image" src="${preview}" title="${description}" />
+        <img class="gallery__image" src="${preview}" alt="${description}" />
     </a>`;
     return imageItem;
 }).join("");
@@ -13,17 +13,8 @@ const images = galleryItems.map(({ preview, original, description }) => {
 
 gallery.innerHTML = images;
 
-// let galler = $('.gallery a').simpleLightbox();
-// galler.on('show.simplelightbox', function () {
-//     // do something…
-//     console.log(1);
-// });
+
+new SimpleLightbox('.gallery a', { captions: true, captionDelay:250, captionsData: "alt" });
 
 
-// let galler = new SimpleLightbox('.gallery a');
-// galler.on('show.simplelightbox', function () {
-//     // do something…
-// });
 
-
-var lightbox = new SimpleLightbox('.gallery a', { captions: true });
